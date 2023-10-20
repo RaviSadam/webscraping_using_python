@@ -110,8 +110,8 @@ csv_writer.writerow(['ASIN', 'Manufacturer', 'Item model number', 'Generic Name'
 
 with open('amazon_products.csv', 'r', newline='\n',encoding='utf-8') as file:
     data = list(csv.reader(file))
-    print(data[0][0])
-    for product in data[1:5]:
+    
+    for product in data:
         print(product[0])
         description, details=getProductDetails(product[0])
         csv_writer.writerow([details["ASIN"],details["Manufacturer"],details["Item model number"],details["Generic Name"],description])
